@@ -11,8 +11,8 @@
     {%- endif -%}
   </title>
 
-  {%- seo title=false -%}
-  {%- feed_meta -%}
+  {% seo title=false %}
+  {% feed_meta %}
 
   <link
     rel="shortcut icon"
@@ -25,59 +25,36 @@
     href="{{ '/assets/css/main.css' | relative_url }}"
   />
 
-  <!-- GitHub Markdown appearance -->
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.9.0/github-markdown.css"
-/>
-
-<style>
-  .w {
-    max-width: 1080px;
-  }
-
-  .markdown-body {
-    box-sizing: border-box;
-    min-width: 200px;
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 32px 45px;
-  }
-
-  @media (max-width: 767px) {
-    .markdown-body {
-      padding: 20px 15px;
-    }
-  }
-</style>
-
-  <!-- KaTeX CSS -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css"
-    crossorigin="anonymous"
-  />
-
-  <!-- KaTeX renderer -->
-  <script
-    defer
-    src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"
-    crossorigin="anonymous">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'],
+          ['\\(', '\\)']
+        ],
+        displayMath: [
+          ['$$', '$$'],
+          ['\\[', '\\]']
+        ],
+        processEscapes: true,
+        tags: 'ams'
+      },
+      options: {
+        skipHtmlTags: [
+          'script',
+          'noscript',
+          'style',
+          'textarea',
+          'pre',
+          'code'
+        ]
+      }
+    };
   </script>
 
-  <!-- Automatic rendering of $...$ and $$...$$ -->
   <script
     defer
-    src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"
-    crossorigin="anonymous"
-    onload="renderMathInElement(document.body, {
-      delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '\\[', right: '\\]', display: true },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '$', right: '$', display: false }
-      ],
-      throwOnError: false
-    });">
+    id="MathJax-script"
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
 </head>

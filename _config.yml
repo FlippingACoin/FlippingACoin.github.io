@@ -1,12 +1,16 @@
 title: Technical Notes
-description: Notes on cryptography and more.
+description: Notes on cryptography and more. 
 
 url: "https://FlippingACoin.github.io"
 baseurl: ""
 
-permalink: /:slug.html
-
 remote_theme: riggraz/no-style-please
+
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  math_engine: mathjax
 
 plugins:
   - jekyll-remote-theme

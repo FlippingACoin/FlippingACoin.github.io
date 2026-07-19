@@ -1,0 +1,57 @@
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>
+    {%- if page.title -%}
+      {{ page.title }}
+    {%- else -%}
+      {{ site.title }}
+    {%- endif -%}
+  </title>
+
+  {%- seo title=false -%}
+  {%- feed_meta -%}
+
+  <link
+    rel="shortcut icon"
+    type="image/x-icon"
+    href="{{ site.favicon | relative_url }}"
+  />
+
+  <link
+    rel="stylesheet"
+    href="{{ '/assets/css/main.css' | relative_url }}"
+  />
+
+  <!-- KaTeX CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css"
+    crossorigin="anonymous"
+  />
+
+  <!-- KaTeX renderer -->
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"
+    crossorigin="anonymous">
+  </script>
+
+  <!-- Automatic rendering of $...$ and $$...$$ -->
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"
+    crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '\\[', right: '\\]', display: true },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '$', right: '$', display: false }
+      ],
+      throwOnError: false
+    });">
+  </script>
+</head>

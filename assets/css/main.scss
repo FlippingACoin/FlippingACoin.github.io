@@ -12,6 +12,24 @@ body {
     serif;
 
   font-weight: 400;
+  font-size: 17px;
+}
+
+.w {
+  max-width: 850px;
+}
+
+blockquote {
+  margin: 1.25rem 0;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-left: 4px solid currentColor;
+  background: rgba(127, 127, 127, 0.08);
+  font-style: normal;
+}
+
+blockquote p {
+  margin: 0.5rem 0;
 }
 
 /* Keep code in a monospace font */

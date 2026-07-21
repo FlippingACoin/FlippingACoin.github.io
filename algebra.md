@@ -49,10 +49,10 @@ The maximum order of an element in the group is divisible by the order of every 
 
 For every $a\in R$, $0_R\cdot a=0_R$.
 
-**Definition**: Let $R$ and $R'$ be rings. A ring homomorphism $\phi:R\rightarrow R'$ satisfies:<\br>
-$\phi(1_R)=1_{R'}$,<\br>
-$\phi(a+b)=\phi(a)+\phi(b)$,<\br>
-$\phi(a\cdot b)=\phi(a)\cdot\phi(b)$.<\br>
+**Definition**: Let $R$ and $R'$ be rings. A ring homomorphism $\phi:R\rightarrow R'$ satisfies:<br>
+$\phi(1_R)=1_{R'}$,<br>
+$\phi(a+b)=\phi(a)+\phi(b)$,<br>
+$\phi(a\cdot b)=\phi(a)\cdot\phi(b)$.<br>
 The set $\ker(\phi)={a\in R:\phi(a)=0_{R'}}$ is called the kernel of $\phi$.
 
 **Definition**: If there exists a bijective homomorphism from $R$ to $R'$, then $R$ and $R'$ are said to be isomorphic. 
@@ -71,8 +71,8 @@ The ring $R$ is a field if and only if $R^*=R\backslash{0}$.
 
 Let $R_1,\ldots,R_n$ be commutative rings. Then $(R_1\times\cdots\times R_n)^*\cong R_1^*\times\cdots\times R_n^*$.
 
-**Definition**: Let $R$ be a commutative ring. An ideal of $R$ is a nonempty subset $I\subseteq R$ satisfying:
-If $a\in I$ and $b\in I$, then $a+b\in I$.
+**Definition**: Let $R$ be a commutative ring. An ideal of $R$ is a nonempty subset $I\subseteq R$ satisfying:<br>
+If $a\in I$ and $b\in I$, then $a+b\in I$.<br>
 If $a\in I$ and $r\in R$, then $ra\in I$. 
 
 An ideal $I$ of $R$ is an additive subgroup of $(R,+)$. ($0,-1\in R$ and apply the second property. )

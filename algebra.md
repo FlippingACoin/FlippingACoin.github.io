@@ -116,7 +116,7 @@ d\geq0,\ a_0,\ldots,a_d\in R\rbrace.
 $$
 
 For $c\in R$, the evaluation map<br>
-$E_c:R\rightarrow R,\qquad E_c(f)=f(c)$<br>
+$E_c:R[X]\rightarrow R,\qquad E_c(f)=f(c)$<br>
 is a ring homomorphism. Its kernel is the set of polynomials in $R[X]$ that are divisible by $X-c$.
 
 **Definition**: Irreducible polynomial

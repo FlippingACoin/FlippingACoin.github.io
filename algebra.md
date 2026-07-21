@@ -28,7 +28,7 @@ The maximum order of an element in the group is divisible by the order of every 
 >
 > The number of cosets is called the index of $H$ in $G$.
 >
-> Lagrange's theorem: For a finite group, $|G|=|H|\cdot [G:H]$. Therefore, the order of every subgroup divides the order of $G$.
+> Lagrange's theorem: For a finite group, $$\lvert G\rvert=\lvert H\rvert\cdot [G:H]$. Therefore, the order of every subgroup divides the order of $G$.
 
 > [!IMPORTANT]
 >

@@ -1,12 +1,7 @@
----
----
-
-@import "no-style-please";
-
-/* Make the text visually consistent with KaTeX */
 body {
   font-family:
-    "KaTeX_Main",
+    Georgia,
+    Cambria,
     "Times New Roman",
     Times,
     serif;
@@ -14,7 +9,6 @@ body {
   font-weight: 400;
 }
 
-/* Keep code in a monospace font */
 code,
 pre,
 kbd,
@@ -28,7 +22,6 @@ samp {
     monospace;
 }
 
-/* Slightly align the apparent size of inline equations */
 .katex {
   font-size: 1.02em;
 }

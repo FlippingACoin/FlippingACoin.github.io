@@ -65,7 +65,7 @@ For every ring $R$, there exists a unique ring homomorphism from $\mathbb{Z}$ to
 
 Every field is an integral domain. Proof: Suppose that a field contains a zero divisor $a$. Then there exists a nonzero element $b\in R$ such that $ab=0$. Since every nonzero element in a field has an inverse, we have $a^{-1}ab=a^{-1}0=0$, and hence $b=0$, which is a contradiction.
 
-**Definition**: Let $R$ be a commutative ring. The group of units of $R$, consisting of all invertible elements of $R$, is the group under multiplication $R^*=\{a\in R:\exists b\in R\text{ such that }ab=1\}$. 
+**Definition**: Let $R$ be a commutative ring. The group of units of $R$, consisting of all invertible elements of $R$, is the group under multiplication $R^*={a\in R:\exists b\in R\text{ such that }ab=1}$. 
 
 The ring $R$ is a field if and only if $R^*=R\backslash{0}$. 
 

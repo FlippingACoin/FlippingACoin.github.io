@@ -48,9 +48,9 @@ For every $a\in R$, $0_R\cdot a=0_R$.
 **Definition**: Let $R$ and $R'$ be rings. A ring homomorphism $\phi:R\rightarrow R'$ satisfies:<br>
 $$
 \begin{aligned}
-\phi(1_R) &= 1_{R'},\\
-\phi(a+b) &= \phi(a)+\phi(b),\\
-\phi(a\cdot b) &= \phi(a)\cdot\phi(b).
+&\phi(1_R) = 1_{R'},\\
+&\phi(a+b) = \phi(a)+\phi(b),\\
+&\phi(a\cdot b) = \phi(a)\cdot\phi(b).
 \end{aligned}
 $$
 <br>The set $\ker(\phi)=\lbrace a\in R:\phi(a)=0_{R'}\rbrace$ is called the kernel of $\phi$.
@@ -125,4 +125,4 @@ is a ring homomorphism. Its kernel is the set of polynomials in $R[X]$ that are 
 
 ## Reference
 
-[^1]: Joseph H. Silverman, *Abstract Algebra: An Integrated Approach*, Pure and Applied Undergraduate Texts, Vol. 55, American Mathematical Society, 2022.
+[1]: Joseph H. Silverman, *Abstract Algebra: An Integrated Approach*, Pure and Applied Undergraduate Texts, Vol. 55, American Mathematical Society, 2022.

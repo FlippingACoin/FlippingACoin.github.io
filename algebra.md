@@ -39,7 +39,7 @@ The maximum order of an element in the group is divisible by the order of every 
 > **Definition**: $H$ is a normal subgroup of $G$ ($H\trianglelefteq G$) if, for every element $g\in G$, $g^{-1}Hg=H$. 
 > (**intuition**: The purpose of defining normal subgroups is to ensure that the equivalence classes induced by $H$ form a group. In particular, for any $a,b\in G$, we would like to define $(aH)(bH)=(ab)H$. That is, for arbitrary (h_1,h_2\in H), we need $(ah_1)(bh_2)\in(ab)H$. Since $ab(b^{-1}h_1b)h_2\in (ab)H$, this requires $b^{-1}h_1b\in H$. Thus, $b^{-1}Hb\subseteq H$. Requiring this condition for every $b\in G$, and applying it also to $b^{-1}$, gives the reverse inclusion. Therefore, $b^{-1}Hb=H$, which is exactly the definition of a normal subgroup.)
 >
-> Every subgroup of an abelian group (communicative group) is normal.
+> Every subgroup of an abelian group (commutative group) is normal.
 >
 > Let $G$ be a group and let $H$ be a normal subgroup of $G$. Then $G/H$ forms a group, called the quotient group.
 
@@ -65,7 +65,7 @@ For every ring $R$, there exists a unique ring homomorphism from $\mathbb{Z}$ to
 
 Every field is an integral domain. Proof: Suppose that a field contains a zero divisor $a$. Then there exists a nonzero element $b\in R$ such that $ab=0$. Since every nonzero element in a field has an inverse, we have $a^{-1}ab=a^{-1}0=0$, and hence $b=0$, which is a contradiction.
 
-**Definition**: Let $R$ be a commutative ring. The group of units of $R$, consisting of all invertible elements of $R$, is the group under multiplication $R^*={a\in R:\exists b\in R\text{ such that }ab=1}$. 
+**Definition**: Let $R$ be a commutative ring. The group of units of $R$, consisting of all invertible elements of $R$, is the group under multiplication $R^*=\lbrace a\in R:\exists b\in R\text{ such that }ab=1\rbrace$. 
 
 The ring $R$ is a field if and only if $R^*=R\backslash{0}$. 
 

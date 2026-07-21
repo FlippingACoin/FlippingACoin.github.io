@@ -14,34 +14,30 @@ For a finite abelian group, the following two properties hold:<br>
 If $(o(a),o(b))=1$, then $o(ab)=o(a)o(b)$. <br>
 The maximum order of an element in the group is divisible by the order of every element.
 
-> [!IMPORTANT]
->
-> An equivalence relation partitions a set into pairwise disjoint equivalence classes. Any two elements in the same equivalence class are related by the equivalence relation. For example, two integers that are congruent modulo $3$ can be regarded as “equivalent.”
->
-> A key idea in group theory is that a subgroup can be used to define an equivalence relation. A subgroup is a subset of $G$ that itself forms a group under the operation of $G$.
->
-> $$(a,b)\in R_H$$, if $a=bh$ for some $h\in H$. Then $R_H$ is an equivalence relation.
->
-> The equivalence class $aH$ is called a left coset of $H$. Right cosets are defined similarly. 
->
-> [Example] let $G=\mathbb{Z}_9,H={[0],[3],[6]}$. Then $[0]+H$ is an equivalence class. In fact, it is also a residue class consisting of the elements congruent to $0$ modulo $3$. Similarly, the other equivalence classes are $[1]+H$ and $[2]+H$. The elements $[0],[1],[2]$ form a complete residue system modulo $3$.
->
-> The number of cosets is called the index of $H$ in $G$.
->
-> Lagrange's theorem: For a finite group, $\lvert G\rvert=\lvert H\rvert\cdot [G:H]$. Therefore, the order of every subgroup divides the order of $G$.
+An equivalence relation partitions a set into pairwise disjoint equivalence classes. Any two elements in the same equivalence class are related by the equivalence relation. For example, two integers that are congruent modulo $3$ can be regarded as “equivalent.”
 
-> [!IMPORTANT]
->
-> **Definition**: Let $G$ be a group and let $H$ be a subgroup of $G$. The set of left cosets of $H$ in $G$ is denoted by $G/H={gH:g\in G}$. 
->
-> **Definition**: Let $G$ be a group, let $H$ be a subgroup of $G$, and let $g$ be an element of $G$. The $g$-conjugate of $H$ is the subgroup $g^{-1}Hg$.
->
-> **Definition**: $H$ is a normal subgroup of $G$ ($H\trianglelefteq G$) if, for every element $g\in G$, $g^{-1}Hg=H$. 
-> (**intuition**: The purpose of defining normal subgroups is to ensure that the equivalence classes induced by $H$ form a group. In particular, for any $a,b\in G$, we would like to define $(aH)(bH)=(ab)H$. That is, for arbitrary (h_1,h_2\in H), we need $(ah_1)(bh_2)\in(ab)H$. Since $ab(b^{-1}h_1b)h_2\in (ab)H$, this requires $b^{-1}h_1b\in H$. Thus, $b^{-1}Hb\subseteq H$. Requiring this condition for every $b\in G$, and applying it also to $b^{-1}$, gives the reverse inclusion. Therefore, $b^{-1}Hb=H$, which is exactly the definition of a normal subgroup.)
->
-> Every subgroup of an abelian group (commutative group) is normal.
->
-> Let $G$ be a group and let $H$ be a normal subgroup of $G$. Then $G/H$ forms a group, called the quotient group.
+A key idea in group theory is that a subgroup can be used to define an equivalence relation. A subgroup is a subset of $G$ that itself forms a group under the operation of $G$.
+
+$$(a,b)\in R_H$$, if $a=bh$ for some $h\in H$. Then $R_H$ is an equivalence relation.
+
+The equivalence class $aH$ is called a left coset of $H$. Right cosets are defined similarly. 
+
+[Example] let $G=\mathbb{Z}_9,H={[0],[3],[6]}$. Then $[0]+H$ is an equivalence class. In fact, it is also a residue class consisting of the elements congruent to $0$ modulo $3$. Similarly, the other equivalence classes are $[1]+H$ and $[2]+H$. The elements $[0],[1],[2]$ form a complete residue system modulo $3$.
+
+The number of cosets is called the index of $H$ in $G$.
+
+Lagrange's theorem: For a finite group, $\lvert G\rvert=\lvert H\rvert\cdot [G:H]$. Therefore, the order of every subgroup divides the order of $G$.
+
+**Definition**: Let $G$ be a group and let $H$ be a subgroup of $G$. The set of left cosets of $H$ in $G$ is denoted by $G/H={gH:g\in G}$. 
+
+**Definition**: Let $G$ be a group, let $H$ be a subgroup of $G$, and let $g$ be an element of $G$. The $g$-conjugate of $H$ is the subgroup $g^{-1}Hg$.
+
+**Definition**: $H$ is a normal subgroup of $G$ ($H\trianglelefteq G$) if, for every element $g\in G$, $g^{-1}Hg=H$. 
+(**intuition**: The purpose of defining normal subgroups is to ensure that the equivalence classes induced by $H$ form a group. In particular, for any $a,b\in G$, we would like to define $(aH)(bH)=(ab)H$. That is, for arbitrary (h_1,h_2\in H), we need $(ah_1)(bh_2)\in(ab)H$. Since $ab(b^{-1}h_1b)h_2\in (ab)H$, this requires $b^{-1}h_1b\in H$. Thus, $b^{-1}Hb\subseteq H$. Requiring this condition for every $b\in G$, and applying it also to $b^{-1}$, gives the reverse inclusion. Therefore, $b^{-1}Hb=H$, which is exactly the definition of a normal subgroup.)
+
+Every subgroup of an abelian group (commutative group) is normal.
+
+Let $G$ be a group and let $H$ be a normal subgroup of $G$. Then $G/H$ forms a group, called the quotient group.
 
 ## Rings
 
@@ -53,7 +49,7 @@ For every $a\in R$, $0_R\cdot a=0_R$.
 $\phi(1_R)=1_{R'}$, <br>
 $\phi(a+b)=\phi(a)+\phi(b)$, <br>
 $\phi(a\cdot b)=\phi(a)\cdot\phi(b)$. <br>
-The set $\ker(\phi)={a\in R:\phi(a)=0_{R'}}$ is called the kernel of $\phi$.
+The set $\ker(\phi)=\lbrace a\in R:\phi(a)=0_{R'}\rbrace$ is called the kernel of $\phi$.
 
 **Definition**: If there exists a bijective homomorphism from $R$ to $R'$, then $R$ and $R'$ are said to be isomorphic. 
 
@@ -69,7 +65,7 @@ Every field is an integral domain. Proof: Suppose that a field contains a zero d
 
 The ring $R$ is a field if and only if $R^*=R\backslash{0}$. 
 
-Let $R_1,\ldots,R_n$ be commutative rings. Then $(R_1\times\cdots\times R_n)^*\cong R_1^*\times\cdots\times R_n^*$.
+Let $R_1,\ldots,R_n$ be commutative rings. Then $(R_1\times\cdots\times R_n)^\times\cong R_1^\times\times\cdots\times R_n^\times$.
 
 **Definition**: Let $R$ be a commutative ring. An ideal of $R$ is a nonempty subset $I\subseteq R$ satisfying:<br>
 If $a\in I$ and $b\in I$, then $a+b\in I$.<br>
@@ -89,7 +85,7 @@ Let $R$ be a commutative ring and let $I$ be an ideal of $R$. Then <br>
 $R\rightarrow R/I,\qquad a\rightarrow a+I$ <br>
 is a ring homomorphism whose kernel is $I$.
 
-> [!TIP]
+> **TIP**
 >
 > There is an analogous relationship between normal subgroups and ideals.
 >
@@ -115,8 +111,8 @@ R[X]=\lbrace a_0+a_1X+\cdots+a_dX^d:
 d\geq0,\ a_0,\ldots,a_d\in R\rbrace.
 $$
 
-For $c\in R$, the evaluation map
-$E_c:R\rightarrow R,\qquad E_c(f)=f(c)$
+For $c\in R$, the evaluation map<br>
+$E_c:R\rightarrow R,\qquad E_c(f)=f(c)$<br>
 is a ring homomorphism. Its kernel is the set of polynomials in $R[X]$ that are divisible by $X-c$.
 
 **Definition**: Irreducible polynomial...

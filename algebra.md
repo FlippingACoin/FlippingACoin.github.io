@@ -46,9 +46,13 @@ Let $G$ be a group and let $H$ be a normal subgroup of $G$. Then $G/H$ forms a g
 For every $a\in R$, $0_R\cdot a=0_R$.
 
 **Definition**: Let $R$ and $R'$ be rings. A ring homomorphism $\phi:R\rightarrow R'$ satisfies:<br>
-$\phi(1_R)=1_{R'}$, <br>
-$\phi(a+b)=\phi(a)+\phi(b)$, <br>
-$\phi(a\cdot b)=\phi(a)\cdot\phi(b)$. <br>
+$$
+\begin{aligned}
+\phi(1_R) &= 1_{R'},\\
+\phi(a+b) &= \phi(a)+\phi(b),\\
+\phi(a\cdot b) &= \phi(a)\cdot\phi(b).
+\end{aligned}
+$$
 The set $\ker(\phi)=\lbrace a\in R:\phi(a)=0_{R'}\rbrace$ is called the kernel of $\phi$.
 
 **Definition**: If there exists a bijective homomorphism from $R$ to $R'$, then $R$ and $R'$ are said to be isomorphic. 
@@ -93,7 +97,7 @@ is a ring homomorphism whose kernel is $I$.
 >
 > An ideal is a substructure of a ring. An ideal defines an equivalence relation: two elements are equivalent if their difference belongs to the ideal. The resulting equivalence classes form a quotient ring. Thus, an ideal induces a quotient ring.
 
-**Definition**: Recall that, for every ring $R$, there exists a unique ring homomorphism $\phi:\mathbb{Z}\rightarrow R$. There exists a unique integer $m\geq0$ such that $\ker(\phi)=m\mathbb{Z}$. The integer $m$ is called the characteristic of $R$. If $m>0$, then it is also the smallest positive integer satisfying $\underbrace{1_R+\cdots+1_R}_{m\text{ times}}=0_R$. 
+**Definition**: Recall that, for every ring $R$, there exists a unique ring homomorphism $\phi:\mathbb{Z}\rightarrow R$. There exists a unique integer $m\geq0$ such that $\ker(\phi)=m\mathbb{Z}$. The integer $m$ is called the characteristic of $R$. If $m>0$, then it is also the smallest positive integer satisfying $$\underbrace{1_R+\cdots+1_R}_{m\text{ times}}=0_R$$. 
 
 **Definition**: Let $R$ be a commutative ring. An ideal $I$ of $R$ is a prime ideal if $I\neq R$ and, whenever $ab\in I$, we have $a\in I$ or $b\in I$. 
 

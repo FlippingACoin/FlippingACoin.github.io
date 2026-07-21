@@ -53,7 +53,7 @@ $$
 \phi(a\cdot b) &= \phi(a)\cdot\phi(b).
 \end{aligned}
 $$
-The set $\ker(\phi)=\lbrace a\in R:\phi(a)=0_{R'}\rbrace$ is called the kernel of $\phi$.
+<br>The set $\ker(\phi)=\lbrace a\in R:\phi(a)=0_{R'}\rbrace$ is called the kernel of $\phi$.
 
 **Definition**: If there exists a bijective homomorphism from $R$ to $R'$, then $R$ and $R'$ are said to be isomorphic. 
 
@@ -119,7 +119,9 @@ For $c\in R$, the evaluation map<br>
 $E_c:R\rightarrow R,\qquad E_c(f)=f(c)$<br>
 is a ring homomorphism. Its kernel is the set of polynomials in $R[X]$ that are divisible by $X-c$.
 
-**Definition**: Irreducible polynomial...
+**Definition**: Irreducible polynomial
+
+(🚧 Work in Progress)
 
 ## Reference
 

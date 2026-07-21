@@ -125,4 +125,4 @@ is a ring homomorphism. Its kernel is the set of polynomials in $R[X]$ that are 
 
 ## Reference
 
-[1]: Joseph H. Silverman, *Abstract Algebra: An Integrated Approach*, Pure and Applied Undergraduate Texts, Vol. 55, American Mathematical Society, 2022.
+[1] Joseph H. Silverman, *Abstract Algebra: An Integrated Approach*, Pure and Applied Undergraduate Texts, Vol. 55, American Mathematical Society, 2022.

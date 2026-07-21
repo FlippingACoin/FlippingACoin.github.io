@@ -49,10 +49,10 @@ The maximum order of an element in the group is divisible by the order of every 
 
 For every $a\in R$, $0_R\cdot a=0_R$.
 
-**Definition**: Let $R$ and $R'$ be rings. A ring homomorphism $\phi:R\rightarrow R'$ satisfies:
-$\phi(1_R)=1_{R'}$,
-$\phi(a+b)=\phi(a)+\phi(b)$,
-$\phi(a\cdot b)=\phi(a)\cdot\phi(b)$.
+**Definition**: Let $R$ and $R'$ be rings. A ring homomorphism $\phi:R\rightarrow R'$ satisfies:<\br>
+$\phi(1_R)=1_{R'}$,<\br>
+$\phi(a+b)=\phi(a)+\phi(b)$,<\br>
+$\phi(a\cdot b)=\phi(a)\cdot\phi(b)$.<\br>
 The set $\ker(\phi)={a\in R:\phi(a)=0_{R'}}$ is called the kernel of $\phi$.
 
 **Definition**: If there exists a bijective homomorphism from $R$ to $R'$, then $R$ and $R'$ are said to be isomorphic. 

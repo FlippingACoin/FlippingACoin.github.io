@@ -9,9 +9,7 @@ entries:
           - title: quotient-polynomial-based PCS
             url: qp-based-pcs
           - title: low-degree-test-based PCS
-            url: ldt-based-pcs
           - title: inner-product-based PCS
-            url: ip-based-pcs
 
   - title: foundations
     entries:

@@ -1,10 +1,10 @@
 entries:
   - title: proof systems
     entries:
-      - title: polynomial commitments
-        url: polynomial-commitments
       - title: constraint systems
         url: constraint-systems
+      - title: polynomial commitments
+        url: polynomial-commitments
         entries:
           - title: quotient-polynomial-based PCS
             url: qp-based-pcs

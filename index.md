@@ -13,5 +13,5 @@ layout: home
   color: #666;
 ">
 © 2026 FlippingACoin.<br>
-Disclaimer: All content on this site reflects personal understanding and views only.
+This site is based on personal understanding and may contain errors or omissions.
 </footer>

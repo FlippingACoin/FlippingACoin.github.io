@@ -8,4 +8,4 @@ noindex: true
 
 Welcome! This site is maintained by Zhichao Wang.
 
-[Return to Main Page](https://flippingacoin.github.io/)
+[\[Return to Main Page\]](https://flippingacoin.github.io/)

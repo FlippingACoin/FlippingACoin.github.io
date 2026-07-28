@@ -58,7 +58,7 @@
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
 
-  {% if page.robots %}
-    <meta name="robots" content="{{ page.robots }}">
+  {% if page.noindex %}
+    <meta name="robots" content="noindex{% if page.nofollow %}, nofollow{% endif %}">
   {% endif %}
 </head>

@@ -6,7 +6,7 @@ The first step in constructing efficient proof systems is **arithmetization**, w
 
 R1CS[^3] transforms an arithmetic circuit into an algebraic constraint system. Its core idea is to represent each multiplication gate as a constraint while incorporating additions and scalar multiplications into linear combinations. For instance, $(1+3x_0+w_0)\cdot x_1=w_1$ represents a multiplicative gate that takes the linear combination of the constant $1$, the scalar multiple $3x_0$, and the witness value $w_0$ as its left input and the instance value $x_1$ as its right input, and outputs $w_1$. The constraint can be written as $\left<\mathbf{a},\mathbf{z}\right>\cdot\left<\mathbf{b},\mathbf{z}\right>=\left<\mathbf{c},\mathbf{z}\right>$, where $\mathbf{a}=(1,3,0,1,0)$, $\mathbf{b}=(0,0,1,0,0)$, $\mathbf{c}=(0,0,0,0,1)$, $\mathbf{z}=(1,x_0,x_1,w_0,w_1)$. Stacking the vectors as rows of matrices yields an R1CS instance, specifically, 
 
-$\mathbf{z}=(1||\mathbf{x}||\mathbf{w}),(\mathbf{A}\cdot\mathbf{z})\circ(\mathbf{B}\cdot\mathbf{z})=\mathbf{C}\cdot\mathbf{z}.$
+$\mathbf{z}=(1\Vert\mathbf{x}\Vert\mathbf{w}),(\mathbf{A}\cdot\mathbf{z})\circ(\mathbf{B}\cdot\mathbf{z})=\mathbf{C}\cdot\mathbf{z}.$
 
 R1CS is supported by a mature ecosystem of libraries. In practice, developers describe the relation to be proven using a frontend language such as Circom. The compiler then translates this description into an R1CS instance and a witness-generation code . Many proofs systems are built on R1CS, e.g., Aurora[^4], Marlin[^5], Fractal[^6] and Bulletproofs[^7]. 
 
@@ -41,7 +41,7 @@ PLONK[^12] introduced an arithmetization that forms the basis of what is now com
 
 Let $\mathbf{a},\mathbf{b},\mathbf{c}\in[m]^n$ represent the indices of the left-input, right-input, and output wires of the $n$ gates, respectively. Let $\mathbf{q_L},\mathbf{q_R},\mathbf{q_O},\mathbf{q_M},\mathbf{q_C}\in\mathbb{F}^n$ be the selector vectors for the left-input, right-input, output, multiplication, and constant terms, respectively. A wire assignment $\mathbf{x}$ satisfies the circuit if the following constraints hold.
 
-* $\forall i\in[n],(\mathbf{q_L})_i\cdot\mathbf{x}_{\mathbf{a}_i}+(\mathbf{q_R})_i\cdot\mathbf{x}_{\mathbf{b}_i}+(\mathbf{q_O})_i\cdot\mathbf{x}_{\mathbf{c}_i}+(\mathbf{q_M})_i\cdot(\mathbf{x}_{\mathbf{a}_i}\mathbf{x}_{\mathbf{b}_i})+(\mathbf{q_C})_i=0$
+* $$\forall i\in[n],(\mathbf{q_L})_i\cdot\mathbf{x}_{\mathbf{a}_i}+(\mathbf{q_R})_i\cdot\mathbf{x}_{\mathbf{b}_i}+(\mathbf{q_O})_i\cdot\mathbf{x}_{\mathbf{c}_i}+(\mathbf{q_M})_i\cdot(\mathbf{x}_{\mathbf{a}_i}\mathbf{x}_{\mathbf{b}_i})+(\mathbf{q_C})_i=0$$
 * All wire occurrences referring to the same circuit wire must carry the same value. This is further proved with permutation check. 
 
 Modern PLONKish systems further support custom gates and lookup arguments[^13], while HyperPlonk[^14] uses multilinear polynomials and sumcheck to handle high-degree constraints more efficiently.

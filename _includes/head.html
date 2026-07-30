@@ -65,36 +65,37 @@
   <link
     id="favicon"
     rel="icon"
-    type="coin/png"
-    href="{{ '/favicon.png' | relative_url }}"
+    type="image/png"
+    href="{{ '/coin.png' | relative_url }}"
   >
   
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", function () {
     const favicon = document.getElementById("favicon");
-    const faviconSrc = "{{ '/favicon.png' | relative_url }}";
+    const faviconSrc = "{{ '/coin.png' | relative_url }}";
   
     const image = new Image();
-    image.src = faviconSrc;
-  
     const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+  
     const size = 64;
+    const duration = 800;
   
     canvas.width = size;
     canvas.height = size;
   
-    const ctx = canvas.getContext("2d");
-  
     let isAnimating = false;
   
     function animateFavicon() {
-      if (isAnimating || !image.complete) {
+      if (
+        isAnimating ||
+        !image.complete ||
+        image.naturalWidth === 0
+      ) {
         return;
       }
   
       isAnimating = true;
-  
-      const duration = 700;
       const startTime = performance.now();
   
       function drawFrame(currentTime) {
@@ -105,13 +106,13 @@
   
         const angle = progress * Math.PI * 2;
   
-        ctx.clearRect(0, 0, size, size);
+        context.clearRect(0, 0, size, size);
   
-        ctx.save();
-        ctx.translate(size / 2, size / 2);
-        ctx.rotate(angle);
+        context.save();
+        context.translate(size / 2, size / 2);
+        context.rotate(angle);
   
-        ctx.drawImage(
+        context.drawImage(
           image,
           -size / 2,
           -size / 2,
@@ -119,9 +120,9 @@
           size
         );
   
-        ctx.restore();
+        context.restore();
   
-        favicon.href = canvas.toDataURL("coin/png");
+        favicon.href = canvas.toDataURL("image/png");
   
         if (progress < 1) {
           requestAnimationFrame(drawFrame);
@@ -134,13 +135,21 @@
       requestAnimationFrame(drawFrame);
     }
   
-    document.addEventListener("visibilitychange", () => {
+    image.addEventListener("load", function () {
+      favicon.href = faviconSrc;
+  
       if (document.visibilityState === "visible") {
         animateFavicon();
       }
     });
-    
-    image.addEventListener("load", () => {
+  
+    image.addEventListener("error", function () {
+      console.error("Failed to load favicon:", faviconSrc);
+    });
+  
+    image.src = faviconSrc;
+  
+    document.addEventListener("visibilitychange", function () {
       if (document.visibilityState === "visible") {
         animateFavicon();
       }

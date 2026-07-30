@@ -61,4 +61,91 @@
   {% if page.noindex %}
     <meta name="robots" content="noindex{% if page.nofollow %}, nofollow{% endif %}">
   {% endif %}
+
+  //favicon display
+  <link
+    id="favicon"
+    rel="icon"
+    type="coin/png"
+    href="{{ '/favicon.png' | relative_url }}"
+  >
+  
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const favicon = document.getElementById("favicon");
+    const faviconSrc = "{{ '/favicon.png' | relative_url }}";
+  
+    const image = new Image();
+    image.src = faviconSrc;
+  
+    const canvas = document.createElement("canvas");
+    const size = 64;
+  
+    canvas.width = size;
+    canvas.height = size;
+  
+    const ctx = canvas.getContext("2d");
+  
+    let isAnimating = false;
+  
+    function animateFavicon() {
+      if (isAnimating || !image.complete) {
+        return;
+      }
+  
+      isAnimating = true;
+  
+      const duration = 700;
+      const startTime = performance.now();
+  
+      function drawFrame(currentTime) {
+        const progress = Math.min(
+          (currentTime - startTime) / duration,
+          1
+        );
+  
+        const angle = progress * Math.PI * 2;
+  
+        ctx.clearRect(0, 0, size, size);
+  
+        ctx.save();
+        ctx.translate(size / 2, size / 2);
+        ctx.rotate(angle);
+  
+        ctx.drawImage(
+          image,
+          -size / 2,
+          -size / 2,
+          size,
+          size
+        );
+  
+        ctx.restore();
+  
+        favicon.href = canvas.toDataURL("coin/png");
+  
+        if (progress < 1) {
+          requestAnimationFrame(drawFrame);
+        } else {
+          favicon.href = faviconSrc;
+          isAnimating = false;
+        }
+      }
+  
+      requestAnimationFrame(drawFrame);
+    }
+  
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") {
+        animateFavicon();
+      }
+    });
+    
+    image.addEventListener("load", () => {
+      if (document.visibilityState === "visible") {
+        animateFavicon();
+      }
+    });
+  });
+  </script>
 </head>

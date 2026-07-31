@@ -33,7 +33,7 @@ Some works use another term, verifiable polynomial delegation (VPD), which can g
 
 Based on their commitment and opening mechanisms, polynomial commitment schemes can be broadly divided into the following three categories. (This is an informal, non-exhaustive taxonomy)
 
-* [Quotient-Polynomial-Based PCS](): The evaluation claim $f(z)=v$ is reduced to the divisibility relation
+* [Quotient-Polynomial-Based PCS](https://flippingacoin.github.io/pq-based-pcs): The evaluation claim $f(z)=v$ is reduced to the divisibility relation
   $$
   f(X)-v=(X-z)q(X)
   $$

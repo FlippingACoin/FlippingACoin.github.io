@@ -50,7 +50,7 @@ Building on the multivariate KZG polynomial scheme, vSQL makes the commitment ex
 
 > Knowledge assumptions state that, for every efficient adversary producing outputs that satisfy a specified algebraic relation, there exists an efficient extractor—typically with access to the adversary’s random tape—that recovers the underlying representation or witness.
 >
-> They are generally considered non-falsifiable because refuting them would require showing that no suitable efficient extractor exists for a particular adversary, rather than exhibiting an efficiently verifiable counterexample. They are also often regarded as non-standard assumptions. 
+> They are generally considered non-falsifiable because refuting them would require showing that no such efficient extractor exists for a particular adversary, rather than exhibiting an efficiently verifiable counterexample. They are also often regarded as non-standard assumptions. 
 
 The companion zk-vSQL work proposed a verifiable polynomial delegation scheme that satisfies an additional zero-knowledge property. 
 

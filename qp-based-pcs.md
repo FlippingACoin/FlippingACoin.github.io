@@ -39,7 +39,7 @@ The construction directly generalizes the univariate scheme. During preprocessin
 
 * $\mathsf{Setup}$: takes bilinear pairing groups $$\mathbb{G},\mathbb{G}_T$$ (order $p$), $e:\mathbb{G}\times\mathbb{G}\rightarrow\mathbb{G}_T$, chooses a generator $g\in_R\mathbb{G}$ and $\mathbf{\alpha}=(\alpha_1,...,\alpha_n)\in_R(\mathbb{Z}_p^*)^n$, set $$pp:=(e,\mathbb{G},\mathbb{G}_T,\{g^{\mathbf{\alpha}^\mathbf{d}}\}_{\vert\mathbf{d}\vert\leq D})$$. 
 * $\mathsf{Commit}$: compute $C=g^{f(\mathbf{\alpha})}$. 
-* $\mathsf{Eval}$: compute all the quotient polynomials $$\left{q_i(\mathbf{X})\right}_{i\in[n]}$$ and $$\left{\pi_i=g^{q_i(\mathbf{\alpha})}\right}_{i\in[n]}$$. 
+* $\mathsf{Eval}$: compute all the quotient polynomials $$\{q_i(\mathbf{X})\}_{i\in[n]}$$ and $$\{\pi_i=g^{q_i(\mathbf{\alpha})}\}_{i\in[n]}$$. 
 * $\mathsf{VerifyEval}$: check whether $e(C/g^v,g)=\prod_{i=1}^ne(\pi_i,g^{\alpha_i-z_i})$. 
 
 As in univariate KZG, the commitment consists of a single group element. However, the evaluation proof contains $n$ group elements, and the SRS can grow rapidly with both the number of variables and the supported degree bounds.

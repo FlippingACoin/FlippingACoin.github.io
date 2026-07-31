@@ -39,9 +39,9 @@ Based on their commitment and opening mechanisms, polynomial commitment schemes 
   $$
   by constructing a quotient polynomial $q(X)$, and usually checked with pairing. Classical examples include KZG[^3], multivariate KZG[^4], vSQL[^5], Zeromorph[^6], etc.
 
-* [Low-Degree-Test-Based PCS](): The polynomial is first represented by its evaluation vector over a sufficiently large domain, and then the vector is committed by vector commitment like Merkle tree. A low-degree test (e.g., FRI[^7]) is then used to prove that the committed vector is, or is close to, a Reed--Solomon codeword corresponding to a low-degree polynomial. Classical examples include FRI, DEEP-FRI[^8], polynomial commitments used in STARKs[^9], and BaseFold[^10], etc. 
+* Low-Degree-Test-Based PCS: The polynomial is first represented by its evaluation vector over a sufficiently large domain, and then the vector is committed by vector commitment like Merkle tree. A low-degree test (e.g., FRI[^7]) is then used to prove that the committed vector is, or is close to, a Reed--Solomon codeword corresponding to a low-degree polynomial. Classical examples include FRI, DEEP-FRI[^8], polynomial commitments used in STARKs[^9], and BaseFold[^10], etc. 
 
-* [Inner-Product-Based PCS](): Polynomial evaluation is expressed as the inner-product relation
+* Inner-Product-Based PCS: Polynomial evaluation is expressed as the inner-product relation
   $$
   v=\left\langle
   (a_0,a_1,\ldots,a_d),

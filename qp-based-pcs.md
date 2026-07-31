@@ -17,7 +17,7 @@ Let $f(X)=\sum_{i=0}^da_iX^i$. A straightforward way to encode $f$ without publi
 
 One motivating point of KZG is to reduce the commitment to a single group element. A natural idea is to choose a hidden point $r\in\mathbb F$ and define the commitment as $C=g^{f(r)}$. This representation is well suited to the quotient-polynomial evaluation check intuitively. KZG addresses this problem through a trusted setup. The setup samples $\alpha\leftarrow_{\$}\mathbb Z_p^*$ and publishes $\left(g,g^\alpha,\ldots,g^{\alpha^d}\right)$, after which $\alpha$ must be discarded. The protocol is as follows.
 
-* $\mathsf{Setup}$: takes bilinear pairing groups $\mathbb{G},\mathbb{G}_T$(order $p$), $e:\mathbb{G}\times\mathbb{G}\rightarrow\mathbb{G}_T$, chooses a generator $g\in_R\mathbb{G}$ and $\alpha\in_R\mathbb{Z}_p^*$, set $pp:=e,\mathbb{G},\mathbb{G}_T,(g,g^\alpha,\dots,g^{\alpha^d})$. (In practice, the setup is usually generated for a maximum degree bound $D\geq d$, and $pp$ can be reused)
+* $\mathsf{Setup}$: takes bilinear pairing groups $\mathbb{G},\mathbb{G}_T$(order $p$), $e:\mathbb{G}\times\mathbb{G}\rightarrow\mathbb{G}_T$, chooses a generator $g\in_R\mathbb{G}$ and $\alpha\in_R\mathbb{Z}_p^*$, set $pp:=(e,\mathbb{G},\mathbb{G}_T,(g,g^\alpha,\dots,g^{\alpha^d}))$. (In practice, the setup is usually generated for a maximum degree bound $D\geq d$, and $pp$ can be reused)
 * $\mathsf{Commit}$: compute $C=g^{f(\alpha)}=\prod_{i=0}^d(g^{\alpha^i})^{a_i}$. 
 * $\mathsf{Eval}$: compute $q(X)=\frac{f(X)-v}{X-z}$ and $\pi=g^{q(\alpha)}$. 
 * $\mathsf{VerifyEval}$: check whether $e(C/g^v,g)=e(\pi,g^{\alpha-z})$. 
@@ -26,7 +26,7 @@ KZG therefore trades a trusted setup and long SRS for constant-size commitments 
 
 However, the above construction does not provide *standard* computational hiding, since it is deterministic, i.e., committing to the same polynomial under the same public parameters always produces the same commitment. Therefore, the paper also presents a Pedersen-style construction: 
 
-* $\mathsf{Setup}$: take bilinear pairing groups $\mathbb{G},\mathbb{G}_T$(order $p$), $e:\mathbb{G}\times\mathbb{G}\rightarrow\mathbb{G}_T$, choose generators $g,h\in_R\mathbb{G}$ and $\alpha\in_R\mathbb{Z}_p^*$, set $pp:=e,\mathbb{G},\mathbb{G}_T,(g,g^\alpha,\dots,g^{\alpha^d},h,h^\alpha,\dots,h^{\alpha^d})$. 
+* $\mathsf{Setup}$: take bilinear pairing groups $\mathbb{G},\mathbb{G}_T$(order $p$), $e:\mathbb{G}\times\mathbb{G}\rightarrow\mathbb{G}_T$, choose generators $g,h\in_R\mathbb{G}$ and $\alpha\in_R\mathbb{Z}_p^*$, set $pp:=(e,\mathbb{G},\mathbb{G}_T,(g,g^\alpha,\dots,g^{\alpha^d},h,h^\alpha,\dots,h^{\alpha^d}))$. 
 * $\mathsf{Commit}$: choose a random polynomial $f'$ of the same degree, and compute $C=g^{f(\alpha)}h^{f'(\alpha)}$. 
 * $\mathsf{Eval}$: compute $q(X)=\frac{f(X)-v}{X-z},q'(X)=\frac{f'(X)-v'}{X-z}$ and $\pi=g^{q(\alpha)}h^{q'(\alpha)}$. 
 * $\mathsf{VerifyEval}$: check whether $e(\frac{C}{g^vh^{v'}},g)=e(\pi,g^{\alpha-z})$. 
@@ -37,9 +37,9 @@ Papamanthou et al. generalized the above scheme to the multivariate polynomial s
 
 The construction directly generalizes the univariate scheme. During preprocessing, the setup provides an encoding for every monomial within the supported total-degree bound. The prover can therefore use the coefficient representation of $f$ to compute $g^{f(\mathbf{\alpha})}$. 
 
-* $\mathsf{Setup}$: takes bilinear pairing groups $$\mathbb{G},\mathbb{G}_T$$ (order $p$), $e:\mathbb{G}\times\mathbb{G}\rightarrow\mathbb{G}_T$, chooses a generator $g\in_R\mathbb{G}$ and $\mathbf{\alpha}=(\alpha_1,...,\alpha_n)\in_R(\mathbb{Z}_p^*)^n$, set $$pp:=e,\mathbb{G},\mathbb{G}_T,\{g^{\mathbf{\alpha}^\mathbf{d}}\}_{\vert\mathbf{d}\vert\leq D}$$. 
+* $\mathsf{Setup}$: takes bilinear pairing groups $$\mathbb{G},\mathbb{G}_T$$ (order $p$), $e:\mathbb{G}\times\mathbb{G}\rightarrow\mathbb{G}_T$, chooses a generator $g\in_R\mathbb{G}$ and $\mathbf{\alpha}=(\alpha_1,...,\alpha_n)\in_R(\mathbb{Z}_p^*)^n$, set $$pp:=(e,\mathbb{G},\mathbb{G}_T,\{g^{\mathbf{\alpha}^\mathbf{d}}\}_{\vert\mathbf{d}\vert\leq D})$$. 
 * $\mathsf{Commit}$: compute $C=g^{f(\mathbf{\alpha})}$. 
-* $\mathsf{Eval}$: compute all the quotient polynomials $\left{q_i(\mathbf{X})\right}_{i\in[n]}$ and $\left{\pi_i=g^{q_i(\mathbf{\alpha})}\right}_{i\in[n]}$. 
+* $\mathsf{Eval}$: compute all the quotient polynomials $$\left{q_i(\mathbf{X})\right}_{i\in[n]}$$ and $$\left{\pi_i=g^{q_i(\mathbf{\alpha})}\right}_{i\in[n]}$$. 
 * $\mathsf{VerifyEval}$: check whether $e(C/g^v,g)=\prod_{i=1}^ne(\pi_i,g^{\alpha_i-z_i})$. 
 
 As in univariate KZG, the commitment consists of a single group element. However, the evaluation proof contains $n$ group elements, and the SRS can grow rapidly with both the number of variables and the supported degree bounds.

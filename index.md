@@ -14,5 +14,5 @@ layout: home
 ">
 © 2026 FlippingACoin.<br>
 This site is based on personal understanding and may contain errors or omissions.<br>
-[about](https://flippingacoin.github.io/verify-910)
+<a href="https://flippingacoin.github.io/verify-910">[About]</a>
 </footer>

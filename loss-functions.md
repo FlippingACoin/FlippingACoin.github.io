@@ -4,7 +4,7 @@
 
 Let $X$ be a discrete random variable taking values in $\mathcal X=\{x_1,\ldots,x_n\}$, and let $p(x_i)=\Pr\left[X=x_i\right]$. The **self-information** of an outcome (x_i) is defined as $I(x_i)=-\log p(x_i)$. The less likely an outcome is, the more difficult it is to predict before it occurs, and therefore the more information its occurrence provides. Conversely, an outcome that is almost certain to occur provides very little new information.
 
-The **entropy** of $X$ is defined as the expected self-information $$H(X)=\mathbb{E}_{x\sim P}[I(x)]=-\sum_{i=1}^n p(x_i)\log p(x_i)$$. Entropy measures the average uncertainty associated with an outcome sampled from (P). Equivalently, it can be interpreted as the average amount of information obtained by observing the outcome of $X$​. Entropy is maximized when $X$ follows the uniform distribution $p(x_1)=\cdots=p(x_n)=\frac{1}{n}$.
+The **entropy** of $X$ is defined as the expected self-information $$H(X)=\mathbb{E}_{x\sim P}[I(x)]=-\sum_{i=1}^n p(x_i)\log p(x_i)$$. Entropy measures the average uncertainty associated with an outcome sampled from $P$. Equivalently, it can be interpreted as the average amount of information obtained by observing the outcome of $X$​. Entropy is maximized when $X$ follows the uniform distribution $p(x_1)=\cdots=p(x_n)=\frac{1}{n}$.
 
 Consider two probability distributions $P$ and $Q$ defined over the same set $\mathcal{X}$. Their **cross-entropy** is defined as $H(P,Q)=-\sum_{i=1}^n p(x_i)\log q(x_i)$. For a fixed distribution $P$, the cross-entropy $H(P,Q)$ is minimized when $Q=P$. One can verify this using a simple example. 
 

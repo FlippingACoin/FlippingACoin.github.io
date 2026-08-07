@@ -4,7 +4,7 @@
 
 Let $X$ be a discrete random variable taking values in $\mathcal X=\{x_1,\ldots,x_n\}$, and let $p(x_i)=\Pr\left[X=x_i\right]$. The **self-information** of an outcome (x_i) is defined as $I(x_i)=-\log p(x_i)$. The less likely an outcome is, the more difficult it is to predict before it occurs, and therefore the more information its occurrence provides. Conversely, an outcome that is almost certain to occur provides very little new information.
 
-The **entropy** of $X$ is defined as the expected self-information $H(X)=\mathbb{E}_{x\sim P}[I(x)]=-\sum_{i=1}^n p(x_i)\log p(x_i)$. Entropy measures the average uncertainty associated with an outcome sampled from (P). Equivalently, it can be interpreted as the average amount of information obtained by observing the outcome of $X$​. Entropy is maximized when $X$ follows the uniform distribution $p(x_1)=\cdots=p(x_n)=\frac{1}{n}$.
+The **entropy** of $X$ is defined as the expected self-information $$H(X)=\mathbb{E}_{x\sim P}[I(x)]=-\sum_{i=1}^n p(x_i)\log p(x_i)$$. Entropy measures the average uncertainty associated with an outcome sampled from (P). Equivalently, it can be interpreted as the average amount of information obtained by observing the outcome of $X$​. Entropy is maximized when $X$ follows the uniform distribution $p(x_1)=\cdots=p(x_n)=\frac{1}{n}$.
 
 Consider two probability distributions $P$ and $Q$ defined over the same set $\mathcal{X}$. Their **cross-entropy** is defined as $H(P,Q)=-\sum_{i=1}^n p(x_i)\log q(x_i)$. For a fixed distribution $P$, the cross-entropy $H(P,Q)$ is minimized when $Q=P$. One can verify this using a simple example. 
 
@@ -16,7 +16,7 @@ Let the model vocabulary be $\mathcal{V}=\{v_1,...,v_n\}$. After tokenization, a
 
 During text generation, the next token can be selected from this distribution in several ways. The simplest method chooses the token with the highest probability, which is known as greedy decoding. Other methods, such as random sampling, top-$k$ sampling, and temperature scaling, can be used to control the randomness and diversity of the generated text. 
 
-During training, each next-token prediction can be viewed as a multi-class classification problem over the vocabulary. The observed next token at position $i$ is $x_i$. Its target distribution $P_i$ can be represented as a one-hot distribution $P_i=\mathbf{e}_{x_i}$, where $\mathbf{e}_{x_i}$ denotes the one-hot vector whose coordinate corresponding to $x_i$ is $1$. Therefore, the cross-entropy at position $i$ is 
+During training, each next-token prediction can be viewed as a multi-class classification problem over the vocabulary. The observed next token at position $i$ is $x_i$. Its target distribution $P_i$ can be represented as a one-hot distribution $$P_i=\mathbf{e}_{x_i}$$, where $$\mathbf{e}_{x_i}$$ denotes the one-hot vector whose coordinate corresponding to $x_i$ is $1$. Therefore, the cross-entropy at position $i$ is 
 
 $$H(P_i,Q_i)=-\sum_{v\in\mathcal{V}}p_i(v)\log q_i(v)=-\log q_i(x_i)=-\log P_M(x_i\mid x_{<i}).$$
 

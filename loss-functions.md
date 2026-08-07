@@ -24,6 +24,6 @@ For the entire sequence, the average cross-entropy loss is $-\frac{1}{L}\sum_{i=
 
 The perplexity of a token sequence is defined as the exponential of the average cross-entropy loss. Intuitively, perplexity measures the effective uncertainty faced by the model at each prediction step. A perplexity of $k$ can be interpreted as an amount of uncertainty equivalent to choosing uniformly among $k$ possible tokens. 
 
-## Loss Function for SFT
+## Loss Function for Supervised Fine-Tuning
 
 🚧 Work in progress. 

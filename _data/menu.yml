@@ -20,5 +20,5 @@ entries:
     entries:
       - title: loss functions
         url: loss-functions
-      - title: LLM Systems - Security & Privacy Overview
+      - title: LLM systems - security & privacy overview
         url: llm-security-privacy

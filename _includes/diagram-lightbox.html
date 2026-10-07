@@ -1,0 +1,134 @@
+{% comment %}
+Jekyll include. Save as _includes/diagram-lightbox.html.
+Use once for each diagram, directly in a Markdown page:
+{% include diagram-lightbox.html src="/images/llm-security.svg" alt="LLM Systems — Security & Privacy Overview" %}
+The src path is relative to the site source; relative_url adds site.baseurl.
+Retain a normal viewport meta tag without disabling browser zoom.
+{% endcomment %}
+<figure class="llm-diagram">
+  <a class="llm-diagram__open" href="{{ include.src | relative_url | escape }}" title="Click to enlarge">
+    <img src="{{ include.src | relative_url | escape }}" alt="{{ include.alt | default: 'Diagram' | escape }}" loading="lazy" decoding="async">
+  </a>
+  <dialog class="llm-diagram__viewer" aria-label="Enlarged diagram">
+    <div class="llm-diagram__toolbar">
+      <a href="{{ include.src | relative_url | escape }}" target="_blank" rel="noopener">Open original</a>
+      <button class="llm-diagram__close" type="button" aria-label="Close enlarged diagram" autofocus>×</button>
+    </div>
+    <img class="llm-diagram__full" alt="{{ include.alt | default: 'Diagram' | escape }}" draggable="false">
+  </dialog>
+  <script>
+    (() => {
+      const root = document.currentScript.closest('.llm-diagram');
+      const link = root.querySelector('.llm-diagram__open');
+      const viewer = root.querySelector('.llm-diagram__viewer');
+      let previousOverflow = '';
+
+      link.addEventListener('click', (event) => {
+        if (event.button !== 0 || event.ctrlKey || event.metaKey ||
+            event.shiftKey || event.altKey) return;
+        // Without dialog support, the normal SVG link still works.
+        if (typeof viewer.showModal !== 'function') return;
+        event.preventDefault();
+        if (viewer.open) return;
+        viewer.querySelector('.llm-diagram__full').src = link.href;
+        viewer.showModal();
+        previousOverflow = document.documentElement.style.overflow;
+        document.documentElement.style.overflow = 'hidden';
+      });
+
+      root.querySelector('.llm-diagram__close').addEventListener('click', () => {
+        viewer.close();
+      });
+      viewer.addEventListener('click', (event) => {
+        if (event.target === viewer) viewer.close();
+      });
+      // Also runs when the dialog is dismissed using Escape.
+      viewer.addEventListener('close', () => {
+        document.documentElement.style.overflow = previousOverflow;
+      });
+    })();
+  </script>
+</figure>
+<style>
+  .llm-diagram { margin: 1.25rem 0; }
+  .llm-diagram > .llm-diagram__open > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    cursor: zoom-in;
+  }
+  .llm-diagram .llm-diagram__viewer {
+    position: fixed;
+    inset: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    overflow: hidden;
+    overscroll-behavior: contain;
+    background: #202124;
+    color: white;
+  }
+  .llm-diagram .llm-diagram__viewer:not([open]) { display: none; }
+  .llm-diagram .llm-diagram__viewer[open] { display: block; }
+  .llm-diagram .llm-diagram__full {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: calc(100vw - 24px);
+    height: calc(100vh - 112px);
+    height: calc(100dvh - 112px);
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    object-fit: contain;
+    transform: translate(-50%, -50%);
+  }
+  .llm-diagram .llm-diagram__toolbar {
+    position: absolute;
+    z-index: 1;
+    top: max(6px, env(safe-area-inset-top));
+    right: max(12px, env(safe-area-inset-right));
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font: 14px/1.4 system-ui, sans-serif;
+  }
+  .llm-diagram .llm-diagram__toolbar a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: white;
+    text-decoration: underline;
+  }
+  .llm-diagram .llm-diagram__close {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 50%;
+    background: white;
+    color: #222;
+    font: 28px/1 system-ui, sans-serif;
+    cursor: pointer;
+  }
+  @media (pointer: coarse) and (orientation: portrait) {
+    .llm-diagram .llm-diagram__full {
+      width: calc(100vh - 112px);
+      width: calc(100dvh - 112px);
+      height: calc(100vw - 24px);
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+  }
+</style>

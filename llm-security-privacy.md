@@ -1,3 +1,6 @@
 # LLM Systems - Security & Privacy Overview
 
-[![LLM Systems - Security & Privacy Overview](llm-security.svg)](llm-security.svg)
+{% include diagram-lightbox.html
+   src="/images/llm-security.svg"
+   alt="LLM Systems — Security & Privacy Overview"
+%}
